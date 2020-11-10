@@ -1,0 +1,9 @@
+/usr/local/lib/cmake/blinky/blinkyConfig.cmake
+/usr/local/include/blinky/api.h
+/usr/local/lib/python2.7/dist-packages/blinky/__init__.py
+/usr/local/lib/python2.7/dist-packages/blinky/blinky.py
+/usr/local/lib/python2.7/dist-packages/blinky/__init__.pyc
+/usr/local/lib/python2.7/dist-packages/blinky/blinky.pyc
+/usr/local/lib/python2.7/dist-packages/blinky/__init__.pyo
+/usr/local/lib/python2.7/dist-packages/blinky/blinky.pyo
+/usr/local/share/gnuradio/grc/blocks/blinky_blinky.xml
