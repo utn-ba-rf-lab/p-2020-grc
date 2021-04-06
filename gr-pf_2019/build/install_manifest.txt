@@ -1,0 +1,9 @@
+/usr/local/lib/cmake/pf_2019/pf_2019Config.cmake
+/usr/local/include/pf_2019/api.h
+/usr/local/lib/python3/dist-packages/pf_2019/__init__.py
+/usr/local/lib/python3/dist-packages/pf_2019/mercurial_sdr.py
+/usr/local/lib/python3/dist-packages/pf_2019/__init__.pyc
+/usr/local/lib/python3/dist-packages/pf_2019/mercurial_sdr.pyc
+/usr/local/lib/python3/dist-packages/pf_2019/__init__.pyo
+/usr/local/lib/python3/dist-packages/pf_2019/mercurial_sdr.pyo
+/usr/local/share/gnuradio/grc/blocks/pf_2019_mercurial_sdr.block.yml
