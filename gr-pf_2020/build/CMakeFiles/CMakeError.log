@@ -1,0 +1,110 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /usr/share/gnuradio/modtool/templates/gr-newmod/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ef551/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ef551.dir/build.make CMakeFiles/cmTC_ef551.dir/build
+make[1]: Entering directory '/usr/share/gnuradio/modtool/templates/gr-newmod/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ef551.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -std=gnu11 -o CMakeFiles/cmTC_ef551.dir/CheckSymbolExists.c.o   -c /usr/share/gnuradio/modtool/templates/gr-newmod/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_ef551
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ef551.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_ef551.dir/CheckSymbolExists.c.o  -o cmTC_ef551 
+CMakeFiles/cmTC_ef551.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_ef551.dir/build.make:97: recipe for target 'cmTC_ef551' failed
+make[1]: *** [cmTC_ef551] Error 1
+make[1]: Leaving directory '/usr/share/gnuradio/modtool/templates/gr-newmod/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_ef551/fast' failed
+make: *** [cmTC_ef551/fast] Error 2
+
+File /usr/share/gnuradio/modtool/templates/gr-newmod/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /usr/share/gnuradio/modtool/templates/gr-newmod/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_12785/fast"
+/usr/bin/make -f CMakeFiles/cmTC_12785.dir/build.make CMakeFiles/cmTC_12785.dir/build
+make[1]: Entering directory '/usr/share/gnuradio/modtool/templates/gr-newmod/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_12785.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -std=gnu11 -o CMakeFiles/cmTC_12785.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_12785
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12785.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_12785.dir/CheckFunctionExists.c.o  -o cmTC_12785 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_12785.dir/build.make:97: recipe for target 'cmTC_12785' failed
+make[1]: *** [cmTC_12785] Error 1
+make[1]: Leaving directory '/usr/share/gnuradio/modtool/templates/gr-newmod/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_12785/fast' failed
+make: *** [cmTC_12785/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/gnuradio/persistent/gr-pf_2020/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_31211/fast"
+/usr/bin/make -f CMakeFiles/cmTC_31211.dir/build.make CMakeFiles/cmTC_31211.dir/build
+make[1]: Entering directory '/home/gnuradio/persistent/gr-pf_2020/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_31211.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -std=gnu11 -o CMakeFiles/cmTC_31211.dir/CheckSymbolExists.c.o   -c /home/gnuradio/persistent/gr-pf_2020/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_31211
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_31211.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_31211.dir/CheckSymbolExists.c.o  -o cmTC_31211 
+CMakeFiles/cmTC_31211.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_31211.dir/build.make:97: recipe for target 'cmTC_31211' failed
+make[1]: *** [cmTC_31211] Error 1
+make[1]: Leaving directory '/home/gnuradio/persistent/gr-pf_2020/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_31211/fast' failed
+make: *** [cmTC_31211/fast] Error 2
+
+File /home/gnuradio/persistent/gr-pf_2020/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/gnuradio/persistent/gr-pf_2020/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c094e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c094e.dir/build.make CMakeFiles/cmTC_c094e.dir/build
+make[1]: Entering directory '/home/gnuradio/persistent/gr-pf_2020/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c094e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -std=gnu11 -o CMakeFiles/cmTC_c094e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c094e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c094e.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_c094e.dir/CheckFunctionExists.c.o  -o cmTC_c094e -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_c094e.dir/build.make:97: recipe for target 'cmTC_c094e' failed
+make[1]: *** [cmTC_c094e] Error 1
+make[1]: Leaving directory '/home/gnuradio/persistent/gr-pf_2020/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_c094e/fast' failed
+make: *** [cmTC_c094e/fast] Error 2
+
+

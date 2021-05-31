@@ -1,0 +1,9 @@
+/usr/local/lib/cmake/howto/howtoConfig.cmake
+/usr/local/include/howto/api.h
+/usr/local/lib/python3/dist-packages/howto/__init__.py
+/usr/local/lib/python3/dist-packages/howto/pf_2020.py
+/usr/local/lib/python3/dist-packages/howto/__init__.pyc
+/usr/local/lib/python3/dist-packages/howto/pf_2020.pyc
+/usr/local/lib/python3/dist-packages/howto/__init__.pyo
+/usr/local/lib/python3/dist-packages/howto/pf_2020.pyo
+/usr/local/share/gnuradio/grc/blocks/howto_pf_2020.block.yml

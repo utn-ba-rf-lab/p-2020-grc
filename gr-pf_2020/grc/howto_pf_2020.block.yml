@@ -1,0 +1,167 @@
+id: howto_pf_2020
+label: pf_2020
+category: '[howto]'
+
+templates:
+  imports: import howto
+  make: howto.pf_2020(${modulation_key},${psk_key},${fc_key}, ${fs_key}, ${pammethod_key}, ${pamtype_key}, ${duty_key},${nbits_key},${am_fc_8bits_key},${am_fc_7bits_key},${am_fc_6bits_key},${am_fc_5bits_key},${psk_fc_key},${psk_fs5M_key},${psk_fs1M_key})
+#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
+#     Keys include:
+#     * id (makes the value accessible as \$keyname, e.g. in the make entry)
+#     * label (label shown in the GUI)
+#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+parameters:
+
+- id: psk_fs1M_key
+  label: psk_fs1M_key
+  dtype: int
+  hide: ${ ( 'none' if modulation_key == "psk" and psk_fc_key == 1000000 else 'all')}
+  default: 50000
+  options: [100000,50000,25000]
+  option_labels: ["100 KHz","50 KHz","25 KHz"]
+
+- id: psk_fs5M_key
+  label: psk_fs5M_key 
+  dtype: int
+  hide: ${ ( 'none' if modulation_key == "psk" and psk_fc_key == 5000000 else 'all')}
+  default: 50000
+  options: [250000,62500,50000,25000]
+  option_labels: ["250 KHz","62.5 KHz","50 KHz","25 KHz"]
+
+
+- id: psk_fc_key
+  label: psk_key
+  dtype: int
+  hide: ${ ( 'none' if modulation_key == "psk" else 'all')}
+  default: 5000000
+  options: [5000000,1000000]
+  option_labels: ["5 MHz","1 MHz"]
+
+  
+- id: am_fc_5bits_key
+  label: Carrier Frequency
+  dtype: string
+  hide: ${ ( 'none' if modulation_key == "am" and nbits_key == 5 else 'all')}
+  default: "pll_50"
+  options: [pll_50.25,pll_100.5]
+  option_labels: ["1.570 MHz","3.141 MHz"]
+
+- id: am_fc_6bits_key
+  label: Carrier Frequency
+  dtype: string
+  hide: ${ ( 'none' if modulation_key == "am" and nbits_key == 6 else 'all')}
+  default: "pll_120"
+  options: [pll_50.25,pll_100.5,pll_201]
+  option_labels: ["785.2KHz","1.570 MHz","3.141 MHz"]
+
+- id: am_fc_7bits_key
+  label: Carrier Frequency
+  dtype: string
+  hide: ${ ( 'none' if modulation_key == "am" and nbits_key == 7 else 'all')}
+  default: "pll_120"
+  options: [pll_50.25,pll_100.5,pll_201]
+  option_labels: ["392.6 KHz","785.2 KHz","1.570 MHz"]
+
+- id: am_fc_8bits_key
+  label: Carrier Frequency
+  dtype: string
+  hide: ${ ( 'none' if modulation_key == "am" and nbits_key == 7 else 'all')}
+  default: "pll_120"
+  options: [pll_50.25,pll_100.5,pll_201]
+  option_labels: ["196.3 KHz","392.6 KHz","785.2KHz"]
+
+
+- id: duty_key
+  label: Duty Cycle (%)
+  dtype: int
+  default: 50
+  hide: ${ ( 'none' if modulation_key == "pam" else 'all')}
+
+
+- id: pamtype_key
+  label: PAM Method
+  dtype: float
+  hide: ${ ( 'none' if modulation_key == "psk" else 'all')}
+
+- id: pammethod_key
+  label: PAM Type
+  dtype: string
+  hide: ${ ( 'none' if modulation_key == "pam" else 'all')}
+  default: "natural_key"
+  options: [natural_key,flat_key]
+  option_labels: ["Natural","Flat Top"]
+
+
+- id: fc_key  
+  label: Carrier Frequency
+  dtype: int
+  default: 1000000
+  hide: ${ ( 'none' if modulation_key == "ook" else 'all')}
+
+
+- id: fs_key
+  label: Sampling Frequency
+  dtype: float
+  default: 44100
+  hide: ${ ( 'none' if modulation_key == "am" else 'all')}
+
+
+- id: modulation_key
+  label: Modulation
+  dtype: string
+  default: "AM"
+  options: [am, ook, psk, pam]
+  option_labels: ["AM", "OOK", "PSK","PAM"]
+
+
+- id: psk_key
+  label: Type
+  dtype: string
+  default: "bpsk"
+  hide: ${ ( 'none' if modulation_key == "psk" else 'all')}
+  options: [bpsk, qpsk, 8psk]
+  option_labels: ["BPSK","QPSK","8PSK"]  
+
+- id: psk_fc_key
+  label: Carrier frequency
+  dtype: int
+  default: 5000000
+  options: [5000000,1000000]
+  hide: ${ ( 'none' if modulation_key == "psk" else 'all')} 
+  option_labels: ["5 MHz","1 MHz"] 
+
+- id: nbits_key
+  label: N Bits
+  dtype: int
+  default: 8
+  options: [8,7,6,5]
+  hide: ${ ( 'none' if modulation_key == "am" else 'all')}
+  option_labels: ["8","7","6","5"] 
+
+  
+  
+#  Make one 'inputs' list entry per input and one 'outputs' list entry per output.
+#  Keys include:
+#      * label (an identifier for the GUI)
+#      * domain (optional - stream or message. Default is stream)
+#      * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+#      * vlen (optional - data stream vector length. Default is 1)
+#      * optional (optional - set to 1 for optional inputs. Default is 0)
+
+  # inputs:
+        #- label: ...
+        #  domain: ...
+        #  dtype: ...
+        # vlen: ...
+        #  optional: ...
+
+  #outputs:
+  #- label: ...
+  #  domain: ...
+  #  dtype: ...
+  # vlen: ...
+  # optional: ...
+
+#  'file_format' specifies the version of the GRC yml format used in the file
+#  and should usually not be changed.
+file_format: 1

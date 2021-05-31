@@ -1,0 +1,77 @@
+options:
+  parameters:
+    author: ''
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: sadsd
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: Not titled yet
+    window_size: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '32000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 12]
+    rotation: 0
+    state: enabled
+- name: howto_pf_2020_0
+  id: howto_pf_2020
+  parameters:
+    alias: ''
+    am_fc_5bits_key: '5'
+    am_fc_6bits_key: '5'
+    am_fc_7bits_key: '5'
+    am_fc_8bits_key: '5'
+    comment: ''
+    duty_key: '50'
+    fc_key: '5'
+    fs_key: '5'
+    modulation_key: pam
+    nbits_key: '7'
+    pammethod_key: '5'
+    pamtype_key: '5'
+    psk_fc_key: '5000000'
+    psk_fs1M_key: '5'
+    psk_fs5M_key: '5'
+    psk_key: qpsk
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [547, 114]
+    rotation: 0
+    state: true
+connections: []
+
+metadata:
+  file_format: 1
