@@ -15,7 +15,7 @@ parameters:
 - id: modulation_key
   label: Modulation
   dtype: string
-  default: "AM"
+  default: am
   options: [am, ook, psk, pam]
   option_labels: ["AM", "OOK", "PSK","PAM"]
 
@@ -23,10 +23,25 @@ parameters:
 - id: psk_key
   label: Type
   dtype: string
-  default: "bpsk"
+  default: bpsk
   hide: ${ ( 'none' if modulation_key == "psk" else 'all')}
   options: [bpsk, qpsk, 8psk]
   option_labels: ["BPSK","QPSK","8PSK"]
+
+
+- id: fc_key
+  label: Carrier Frequency
+  dtype: int
+  default: 1000000
+  hide: ${ ( 'none' if modulation_key == "ook" else 'all')}
+
+
+- id: fs_key
+  label: Sampling Frequency
+  dtype: float
+  default: 44100
+  hide: ${ ( 'none' if modulation_key == "am" else 'all')}
+
 
 - id: psk_fc_key
   label: Carrier frequency
@@ -71,12 +86,13 @@ parameters:
   options: [5000000,1000000]
   option_labels: ["5 MHz","1 MHz"]
 
-  
+################## ##AM Carrier Frequency depending N Bits##########################################
+
 - id: am_fc_5bits_key
   label: Carrier Frequency
   dtype: string
   hide: ${ ( 'none' if modulation_key == "am" and nbits_key == 5 else 'all')}
-  default: "pll_50"
+  default: pll_50
   options: [pll_50.25,pll_100.5]
   option_labels: ["1.570 MHz","3.141 MHz"]
 
@@ -84,7 +100,7 @@ parameters:
   label: Carrier Frequency
   dtype: string
   hide: ${ ( 'none' if modulation_key == "am" and nbits_key == 6 else 'all')}
-  default: "pll_120"
+  default: pll_120
   options: [pll_50.25,pll_100.5,pll_201]
   option_labels: ["785.2KHz","1.570 MHz","3.141 MHz"]
 
@@ -92,7 +108,7 @@ parameters:
   label: Carrier Frequency
   dtype: string
   hide: ${ ( 'none' if modulation_key == "am" and nbits_key == 7 else 'all')}
-  default: "pll_120"
+  default: pll_120
   options: [pll_50.25,pll_100.5,pll_201]
   option_labels: ["392.6 KHz","785.2 KHz","1.570 MHz"]
 
@@ -100,10 +116,15 @@ parameters:
   label: Carrier Frequency
   dtype: string
   hide: ${ ( 'none' if modulation_key == "am" and nbits_key == 7 else 'all')}
-  default: "pll_120"
+  default: pll_120
   options: [pll_50.25,pll_100.5,pll_201]
   option_labels: ["196.3 KHz","392.6 KHz","785.2KHz"]
 
+
+#######################################################################################################  
+
+
+######################################## PAM Parameters ############################################### 
 
 - id: duty_key
   label: Duty Cycle (%)
@@ -111,12 +132,11 @@ parameters:
   default: 50
   hide: ${ ( 'none' if modulation_key == "pam" else 'all')}
 
-
 - id: pamtype_key
   label: PAM Method
   dtype: string
   hide: ${ ( 'none' if modulation_key == "pam" else 'all')}
-  default: "ulaw"
+  default: ulaw
   options: [ulaw,alaw]
   option_labels: ["u-Law","A-Law"]
 
@@ -125,25 +145,12 @@ parameters:
   label: PAM Type
   dtype: string
   hide: ${ ( 'none' if modulation_key == "pam" else 'all')}
-  default: "natural_key"
+  default: natural_key
   options: [natural_key,flat_key]
   option_labels: ["Natural","Flat Top"]
 
-
-- id: fc_key  
-  label: Carrier Frequency
-  dtype: int
-  default: 1000000
-  hide: ${ ( 'none' if modulation_key == "ook" else 'all')}
-
-
-- id: fs_key
-  label: Sampling Frequency
-  dtype: float
-  default: 44100
-  hide: ${ ( 'none' if modulation_key == "am" else 'all')}
-
-
+########################################################################################################
+  
 #  Make one 'inputs' list entry per input and one 'outputs' list entry per output.
 #  Keys include:
 #      * label (an identifier for the GUI)
@@ -151,7 +158,9 @@ parameters:
 #      * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
 #      * vlen (optional - data stream vector length. Default is 1)
 #      * optional (optional - set to 1 for optional inputs. Default is 0)
-
+#
+########################################################################################################
+  
 inputs:
 
 - label: data
