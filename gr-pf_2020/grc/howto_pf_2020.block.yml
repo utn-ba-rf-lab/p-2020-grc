@@ -12,6 +12,40 @@ templates:
 #     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
 parameters:
 
+- id: modulation_key
+  label: Modulation
+  dtype: string
+  default: "AM"
+  options: [am, ook, psk, pam]
+  option_labels: ["AM", "OOK", "PSK","PAM"]
+
+
+- id: psk_key
+  label: Type
+  dtype: string
+  default: "bpsk"
+  hide: ${ ( 'none' if modulation_key == "psk" else 'all')}
+  options: [bpsk, qpsk, 8psk]
+  option_labels: ["BPSK","QPSK","8PSK"]
+
+- id: psk_fc_key
+  label: Carrier frequency
+  dtype: int
+  default: 5000000
+  options: [5000000,1000000]
+  hide: ${ ( 'none' if modulation_key == "psk" else 'all')}
+  option_labels: ["5 MHz","1 MHz"]
+
+- id: nbits_key
+  label: N Bits
+  dtype: int
+  default: 8
+  options: [8,7,6,5]
+  hide: ${ ( 'none' if modulation_key == "am" else 'all')}
+  option_labels: ["8","7","6","5"]
+
+        
+        
 - id: psk_fs1M_key
   label: psk_fs1M_key
   dtype: int
@@ -80,8 +114,12 @@ parameters:
 
 - id: pamtype_key
   label: PAM Method
-  dtype: float
-  hide: ${ ( 'none' if modulation_key == "psk" else 'all')}
+  dtype: string
+  hide: ${ ( 'none' if modulation_key == "pam" else 'all')}
+  default: "ulaw"
+  options: [ulaw,alaw]
+  option_labels: ["u-Law","A-Law"]
+
 
 - id: pammethod_key
   label: PAM Type
@@ -106,40 +144,6 @@ parameters:
   hide: ${ ( 'none' if modulation_key == "am" else 'all')}
 
 
-- id: modulation_key
-  label: Modulation
-  dtype: string
-  default: "AM"
-  options: [am, ook, psk, pam]
-  option_labels: ["AM", "OOK", "PSK","PAM"]
-
-
-- id: psk_key
-  label: Type
-  dtype: string
-  default: "bpsk"
-  hide: ${ ( 'none' if modulation_key == "psk" else 'all')}
-  options: [bpsk, qpsk, 8psk]
-  option_labels: ["BPSK","QPSK","8PSK"]  
-
-- id: psk_fc_key
-  label: Carrier frequency
-  dtype: int
-  default: 5000000
-  options: [5000000,1000000]
-  hide: ${ ( 'none' if modulation_key == "psk" else 'all')} 
-  option_labels: ["5 MHz","1 MHz"] 
-
-- id: nbits_key
-  label: N Bits
-  dtype: int
-  default: 8
-  options: [8,7,6,5]
-  hide: ${ ( 'none' if modulation_key == "am" else 'all')}
-  option_labels: ["8","7","6","5"] 
-
-  
-  
 #  Make one 'inputs' list entry per input and one 'outputs' list entry per output.
 #  Keys include:
 #      * label (an identifier for the GUI)
@@ -148,12 +152,13 @@ parameters:
 #      * vlen (optional - data stream vector length. Default is 1)
 #      * optional (optional - set to 1 for optional inputs. Default is 0)
 
-  # inputs:
-        #- label: ...
-        #  domain: ...
-        #  dtype: ...
+inputs:
+
+- label: data
+        # domain: 
+  dtype: float
         # vlen: ...
-        #  optional: ...
+        # optional: ...
 
   #outputs:
   #- label: ...

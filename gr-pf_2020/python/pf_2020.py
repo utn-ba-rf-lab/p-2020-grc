@@ -33,7 +33,7 @@ class pf_2020(gr.sync_block):
         gr.sync_block.__init__(self,
             name="pf_2020",
             #in_sig=numpy.float32,
-            in_sig=None,
+            in_sig=[numpy.float32],
             out_sig=None)
 
         # Atributos
